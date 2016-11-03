@@ -1,0 +1,27 @@
+{
+  "name": "ifthenpay",
+  "version": "0.0.0",
+  "description": "ifthenpay unofficial javascript module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cusspvz/ifthenpay.git"
+  },
+  "keywords": [
+    "ifthenpay",
+    "pay",
+    "multibanco",
+    "portugal",
+    "payment",
+    "atm"
+  ],
+  "author": "José Moreira <josemoreiravarzim@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cusspvz/ifthenpay/issues"
+  },
+  "homepage": "https://github.com/cusspvz/ifthenpay#readme"
+}
