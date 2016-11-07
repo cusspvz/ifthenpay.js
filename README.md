@@ -9,10 +9,10 @@ npm i --save ifthenpay
 
 ## Usage
 
-### JS ES6/7 a.k.a. ES-awesome
+### JS ES6/ES7/ES2015/ES2016 a.k.a. ES-awesome
 
 #### Generating multibanco's payment codes
-```
+```es6
 import IfThenPay from 'ifthenpay'
 
 const ifthenpay = new IfThenPay({
@@ -30,7 +30,7 @@ console.log( ifthenpay.generate( 55.34 ) )
 ```
 
 #### Connecting with an express server
-```
+```es6
 import IfThenPay from 'ifthenpay'
 import Express from 'express'
 
@@ -68,6 +68,67 @@ const ifthenpay = new IfThenPay({
 
 ```
 
+### JS ES5 / CommonJS
+
+
+#### Generating multibanco's payment codes
+```js
+var IfThenPay = require( 'ifthenpay' )
+
+var ifthenpay = new IfThenPay({
+  entity: '99999'
+  subentity: '999'
+})
+
+// Generate a multibanco payment codes
+console.log( ifthenpay.generate( 55.34 ) )
+/*> Object {
+  "entity": "99999",
+  "reference": "999000014",
+  "value": 55.34
+} */
+```
+
+#### Connecting with an express server
+```js
+var IfThenPay = require( 'ifthenpay' )
+var Express = require( 'express' )
+
+var server = Express().listen(80)
+var preSharedKey = '99999999999999999999999999999'
+
+var ifthenpay = new IfThenPay({
+  entity: '99999'
+  subentity: '999',
+  webhook: {
+    server: server, preSharedKey: preSharedKey,
+    callback: function ({ id, value }) {
+      return Promise.try(function () {
+        // fetch from database
+        return database.fetch( id )
+      })
+      .then(function ( payment ) {
+        if ( payment.value !== value ) {
+          throw new Error( "Payment's value is different from the received value!?" )
+          // Warn dev team?
+        }
+
+        if ( payment.completed ) {
+          throw new Error( "Payment was already completed" )
+          // Warn dev team?
+        }
+
+        return payment.set( 'completed', true ).save()
+      })
+
+      // We don't need to return nothing fancy, if callback runs without errors
+      // this module will assume everything is fine and will respond with a 200
+      // http status to the IfThenPay webhook request.
+    }
+  }
+})
+
+```
 
 ## API
 
