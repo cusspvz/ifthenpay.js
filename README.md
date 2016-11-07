@@ -1,6 +1,45 @@
 # ifthenpay
 ifthenpay unofficial javascript module
 
+## What is this?
+
+Portugal has a payment service called **Referências Multibanco**, which means
+"multi bank references" in English.
+
+**Multibanco** allows portuguese people to get way more from an ATM service.
+
+Portuguese people can, over a Smartphone or an ATM:
+* Pre-charge their phones
+* Pay bills (electric, ISP and other contract bills)
+* Pay for one-shot services
+* Send money to others just by knowing their number
+* Pay taxes
+* much more, I can't remember all cases.
+
+Those services are offered by a all-bank-shared company called SIBS.
+
+For being able to generate **Referências Multibanco**, you must engage with your
+bank's Account Manager and pay a Setup + Anual fee, but it is only worth if you
+have a noticeable business flow going.
+
+To bypass this scenario, some products emerged by allowing the small companies
+to enter into the **Multibanco** scene with a pay-as-you-go business model as
+you may find on Credit Cards.
+
+IfThenPay is one of them. I've choosed to work with them because they've created
+an algorithm to allow their customers to create their custom  **Multibanco**
+references on the go.
+
+Note: At them time, I have not any kind of engagement with **IfThenPay**, and
+I'm the owner of this Software.
+
+## Why should I use it?
+
+* Does NOT require API connections for generating **Multibanco** references.
+* IfThenPay connects to your server's endpoint (webhook) when a payment is made
+* This project does not require any module on production
+* It is Isomorphic/Universal, can run over both browser or server engines.
+
 ## Installation
 
 ```
@@ -29,6 +68,25 @@ console.log( ifthenpay.generate( 55.34 ) )
 } */
 ```
 
+#### Connecting with a node http server
+```es6
+import http from 'http'
+
+const server = http.createServer().listen(80)
+const preSharedKey = '99999999999999999999999999999'
+
+const ifthenpay = new IfThenPay({
+  entity: '99999'
+  subentity: '999',
+  webhook: {
+    server, preSharedKey,
+    callback: async function ({ id, value }) {
+      // Callback logic
+    }
+  }
+})
+```
+
 #### Connecting with an express server
 ```es6
 import IfThenPay from 'ifthenpay'
@@ -43,6 +101,25 @@ const ifthenpay = new IfThenPay({
   webhook: {
     server, preSharedKey,
     callback: async function ({ id, value }) {
+      // Callback logic
+    }
+  }
+})
+
+```
+
+#### Callback logic
+Callback allows you to do something whenever IfThenPay warns your server about
+a successful payment.
+
+```es6
+const ifthenpay = new IfThenPay({
+  entity: '99999'
+  subentity: '999',
+  webhook: {
+    server, preSharedKey,
+    callback: async function ({ id, value }) {
+
       // fetch from database
       const payment = await database.fetch( id )
 
@@ -65,7 +142,6 @@ const ifthenpay = new IfThenPay({
     }
   }
 })
-
 ```
 
 ### JS ES5 / CommonJS
@@ -103,6 +179,22 @@ var ifthenpay = new IfThenPay({
   webhook: {
     server: server, preSharedKey: preSharedKey,
     callback: function (context) {
+      // Callback logic
+    }
+  }
+})
+
+```
+
+#### Callback logic
+
+```js
+var ifthenpay = new IfThenPay({
+  entity: '99999'
+  subentity: '999',
+  webhook: {
+    server: server, preSharedKey: preSharedKey,
+    callback: function (context) {
       var id = context.id
       var value = context.value
 
@@ -130,7 +222,6 @@ var ifthenpay = new IfThenPay({
     }
   }
 })
-
 ```
 
 ## API

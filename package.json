@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cusspvz/ifthenpay.git"
+    "url": "git+https://github.com/cusspvz/ifthenpay.js.git"
   },
   "keywords": [
     "ifthenpay",
@@ -23,9 +23,9 @@
   "author": "José Moreira <josemoreiravarzim@gmail.com>",
   "license": "PO-1.0",
   "bugs": {
-    "url": "https://github.com/cusspvz/ifthenpay/issues"
+    "url": "https://github.com/cusspvz/ifthenpay.js/issues"
   },
-  "homepage": "https://github.com/cusspvz/ifthenpay#readme",
+  "homepage": "https://github.com/cusspvz/ifthenpay.js#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
