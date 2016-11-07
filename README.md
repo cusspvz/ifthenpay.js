@@ -9,7 +9,7 @@ npm i --save ifthenpay
 
 ## Usage
 
-### JS ES6/ES7/ES2015/ES2016 a.k.a. ES-awesome
+### JS ES-stage-0 a.k.a. ES-awesome
 
 #### Generating multibanco's payment codes
 ```es6
@@ -102,7 +102,10 @@ var ifthenpay = new IfThenPay({
   subentity: '999',
   webhook: {
     server: server, preSharedKey: preSharedKey,
-    callback: function ({ id, value }) {
+    callback: function (context) {
+      var id = context.id
+      var value = context.value
+
       return Promise.try(function () {
         // fetch from database
         return database.fetch( id )
