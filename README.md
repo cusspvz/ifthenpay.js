@@ -1,5 +1,7 @@
-# ifthenpay
+# ifthenpay.js
 ifthenpay unofficial javascript module
+
+![mbifthenpay](https://cloud.githubusercontent.com/assets/3604053/20067844/96bc292e-a50e-11e6-8f88-df02451b3d84.png)
 
 ## What is this?
 
@@ -33,6 +35,7 @@ references on the go.
 Note: At them time, I have not any kind of engagement with **IfThenPay**, and
 I'm the owner of this Software.
 
+
 ## Why should I use it?
 
 * Does NOT require API connections for generating **Multibanco** references.
@@ -40,18 +43,20 @@ I'm the owner of this Software.
 * This project does not require any module on production
 * It is Isomorphic/Universal, can run over both browser or server engines.
 
+
 ## Installation
 
-```
+```bash
 npm i --save ifthenpay
 ```
+
 
 ## Usage
 
 ### JS ES-stage-0 a.k.a. ES-awesome
 
 #### Generating multibanco's payment codes
-```es6
+```js
 import IfThenPay from 'ifthenpay'
 
 const ifthenpay = new IfThenPay({
@@ -69,7 +74,7 @@ console.log( ifthenpay.generate( 55.34 ) )
 ```
 
 #### Connecting with a node http server
-```es6
+```js
 import http from 'http'
 
 const server = http.createServer().listen(80)
@@ -88,7 +93,7 @@ const ifthenpay = new IfThenPay({
 ```
 
 #### Connecting with an express server
-```es6
+```js
 import IfThenPay from 'ifthenpay'
 import Express from 'express'
 
@@ -112,7 +117,7 @@ const ifthenpay = new IfThenPay({
 Callback allows you to do something whenever IfThenPay warns your server about
 a successful payment.
 
-```es6
+```js
 const ifthenpay = new IfThenPay({
   entity: '99999'
   subentity: '999',
