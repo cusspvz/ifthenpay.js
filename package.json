@@ -4,8 +4,8 @@
   "description": "ifthenpay unofficial javascript module",
   "main": "lib/if-then-pay.js",
   "scripts": {
-    "prepublish": "npm run build",
-    "build": "babel -d lib/ src/",
+    "build": "rm -fR lib/; mkdir lib/; babel -d lib/ src/",
+    "browserify": "rm -fR dist/; mkdir dist/; browserify lib/ifthenpay.browser.js -o dist/ifthenpay.js; uglifyjs dist/ifthenpay.js > dist/ifthenpay.min.js",
     "test": "nyc mocha"
   },
   "repository": {
@@ -38,7 +38,8 @@
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
     "nyc": "^8.4.0",
-    "supertest": "^2.0.1"
+    "supertest": "^2.0.1",
+    "uglify-js": "^2.7.4"
   },
   "babel": {
     "presets": [

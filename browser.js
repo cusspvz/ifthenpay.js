@@ -1,0 +1,1 @@
+lib/ifthenpay.browser.js

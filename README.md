@@ -45,6 +45,7 @@ I'm the owner of this Software.
 * Server-side webhook can work with node's http interface or server frameworks
 such as express or restify.
 * Has a test framework harassing hardly for bugs.
+* About 5KB compressed!!!
 
 ## Installation
 
@@ -52,6 +53,13 @@ such as express or restify.
 npm i --save ifthenpay
 ```
 
+NOTE:
+In case you're including this in a bundle, and need to cut down the server part
+to decrease bundle's size, please include the browser implementation instead.
+
+```js
+var IfThenPay = require( 'ifthenpay/browser' )
+```
 
 ## Usage
 
