@@ -17,5 +17,4 @@ deploy:
      - dist/ifthenpay.js
      - dist/ifthenpay.min.js
   on:
-    repo: cusspvz/ifthenpay.js
     tags: true
