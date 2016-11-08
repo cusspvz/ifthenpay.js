@@ -256,12 +256,12 @@ Option provided by IfThen.
 Object with options for webhook handling.
 
 #### `options.webhook.url`
-`string | false`
+`String | false`
 
 URL to strict responses. If not defined, it will respond to all requests.
 
 #### `options.webhook.server`
-`Express/Rest`
+`http.Server / Express / Restify`
 
 Will be used to set up a route handler
 
