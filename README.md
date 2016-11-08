@@ -42,7 +42,9 @@ I'm the owner of this Software.
 * IfThenPay connects to your server's endpoint (webhook) when a payment is made
 * This project does not require any module on production
 * It is Isomorphic/Universal, can run over both browser or server engines.
-
+* Server-side webhook can work with node's http interface or server frameworks
+such as express or restify.
+* Has a test framework harassing hardly for bugs.
 
 ## Installation
 
@@ -245,6 +247,11 @@ Option provided by IfThen.
 `Object | false`
 Object with options for webhook handling.
 
+#### `options.webhook.url`
+`string | false`
+
+URL to strict responses. If not defined, it will respond to all requests.
+
 #### `options.webhook.server`
 `Express/Rest`
 
@@ -262,7 +269,7 @@ Method for handling validation on your side, such database payments comparison.
 Method will receive most needed variables, already parsed and validated.
 
 The callback won't be called in case:
-- There isn't a match between pre-shared keys;
+- There isn't a match between pre-shared keys
 - Entity does not match
 - Reference contains a different subentity
 - Entity/Reference/Value has a bad Checksum

@@ -1,0 +1,31 @@
+{
+  "name": "ifthenpay-example-log-webhook-payments",
+  "version": "1.0.0",
+  "description": "ifthenpay example log webhook payments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cusspvz/ifthenpay.js.git"
+  },
+  "keywords": [
+    "ifthenpay",
+    "example",
+    "log",
+    "webhook",
+    "webhooks",
+    "payment",
+    "payments"
+  ],
+  "author": "José Moreira <josemoreiravarzim@gmail.com>",
+  "license": "POL-1.0",
+  "bugs": {
+    "url": "https://github.com/cusspvz/ifthenpay.js/issues"
+  },
+  "homepage": "https://github.com/cusspvz/ifthenpay.js#readme",
+  "devDependencies": {
+    "supertest": "^2.0.1"
+  }
+}

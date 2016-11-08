@@ -5,6 +5,7 @@
  */
 
 import generateMultibanco from './generate-multibanco'
+import generateMiddleware from './generate-middleware'
 
 const DEFAULT_OPTIONS = {
   rejectDeepDecimalValues: false,
@@ -15,7 +16,7 @@ const DEFAULT_OPTIONS = {
 export class IfThenPay {
 
   constructor ( options ) {
-    this.options = {
+    options = this.options = {
       ...DEFAULT_OPTIONS,
       ...options
     }
@@ -38,7 +39,7 @@ export class IfThenPay {
 
     if ( typeof options.webhook == 'object' ) {
       if ( typeof options.webhook.url != 'string' ) {
-        throw new TypeError( "options.webhook.url must be a valid url without the trailling slash. Ex: '/webhook'" )
+        options.webhook.url = false
       }
 
       if ( typeof options.webhook.server == undefined ) {
@@ -49,15 +50,17 @@ export class IfThenPay {
         throw new TypeError( "options.webhook.callback must be a function" )
       }
 
-      if ( typeof options.webhook.preSharedKey != 'function' ) {
-        throw new TypeError( "options.webhook.preSharedKey must be a 50 chars key (they claim this as the AntiPhishingKey)" )
+      if ( typeof options.webhook.preSharedKey != 'string' || options.webhook.preSharedKey.length > 50 ) {
+        throw new TypeError( "options.webhook.preSharedKey must be a max 50 chars key (they claim this as the AntiPhishingKey)" )
       }
+
+      this.mountMiddleware()
     }
 
   }
 
   generate ( value, id = 0 ) {
-    const { entity, subentity } = this.options
+    const { entity, subentity, generateReferenceOnly } = this.options
 
     // Arguments validation
     if ( typeof id != 'number' ) {
@@ -78,45 +81,32 @@ export class IfThenPay {
 
     const reference = generateMultibanco( entity, subentity, value, id )
 
-    return this.generateReferenceOnly ? reference : { entity, reference, value }
+    return generateReferenceOnly ? reference : { entity, reference, value }
   }
 
-  async middleware ( req, res ) {
-    const { entity, webhook: { preSharedKey, callback } } = this.options
+  middleware () {
+    return generateMiddleware( this )
+  }
 
-    try {
-
-      if ( preSharedKey !== req.query( 'chave' ) ) {
-        throw new Error( "preSharedKey didn't match" )
-      }
-
-      if ( entity !== req.query( 'entidade' ) ) {
-        throw new Error( "entity didn't match" )
-      }
-
-      const reference = req.query( 'referencia' )
-
-      if ( ! reference.match(/[0-9](9)/) ) {
-        throw new Error( "reference didn't match" )
-      }
-
-      if ( subentity !== reference.substr( 0, subentity.length ) ) {
-        throw new Error( "subentity didn't match" )
-      }
-
-      const value = req.query( 'value' )
-
-      // seems we can pass this up to the callback
-      // first, we'll gonna fetch the ID from the reference and pass all the
-      // data needed for the callback
-      const id = reference.substr( subentity.length, 7 /*( 9 - 2 )*/ - subentity.length )
-
-      await callback({ entity, subentity, id, reference, value })
-
-    } catch ( err ) {
-      res.status( 500 ).send()
+  mountedMiddleware = false
+  mountMiddleware () {
+    if ( this.mountedMiddleware ) {
+      throw new Error( "Seems we already mounted middleware on server" )
     }
 
-    res.status( 200 ).send()
+    const { url, server } = this.options.webhook
+
+    // Express Router / Restify
+    if ( typeof server.use == 'function' ) {
+      server.get( url, this.middleware() )
+    } else if ( typeof server.on == 'function' ) {
+      server.on( 'request', this.middleware() )
+    } else {
+      throw new Error( "Unable to auto-mount middleware on server" )
+    }
+
+    this.mountedMiddleware = true
   }
 }
+
+export default IfThenPay

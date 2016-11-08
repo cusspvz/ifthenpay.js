@@ -2,7 +2,7 @@
   "name": "ifthenpay",
   "version": "0.1.0",
   "description": "ifthenpay unofficial javascript module",
-  "main": "lib/index.js",
+  "main": "lib/if-then-pay.js",
   "scripts": {
     "prepublish": "npm run build",
     "build": "babel -d lib/ src/",
@@ -21,7 +21,7 @@
     "atm"
   ],
   "author": "José Moreira <josemoreiravarzim@gmail.com>",
-  "license": "PO-1.0",
+  "license": "POL-1.0",
   "bugs": {
     "url": "https://github.com/cusspvz/ifthenpay.js/issues"
   },
@@ -37,7 +37,8 @@
     "babel-preset-stage-0": "^6.16.0",
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
-    "nyc": "^8.4.0"
+    "nyc": "^8.4.0",
+    "supertest": "^2.0.1"
   },
   "babel": {
     "presets": [
