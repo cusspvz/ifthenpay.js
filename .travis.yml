@@ -14,8 +14,8 @@ deploy:
   provider: releases
   api_key:
     secure: OxEA9+n3nuN22UDvn9RXU/sIrcOX4+iXUeL2RJJ2HebmpZ7IgSGemafPv/9IkeZzgBgpWsH5w0YwXC02lHiTKgElkQSM+766yNp/CqQ1a7WIXeOc97CRutIiki5F7Hvt1VAQWXCaqa41jAQwoJjPsALeiFLNMtbIF6KMlErI6n8whoBkeQtpX4fN/YvM7ngkmZ/9gyNpPra2QnzLPGc9snAS8G/+xkZlPC6UTexiOkFDtciLhgYLo9IZAs6oFwlxaR4Gb4iAY0+eTwiBYZQWQTdjIcH4CbRpPksz9SIzcV93twfF3tc/UoB99RwpSxNVKeDT6fRtEGxAeonHHhorazO8lgWgzqeOA3TAvR4WyHHVsoWgcV4zQU7JVhA4uHL935TGcx1tVOjVwuK7+3WGE3DUloFqtG2yESqyv/fiFBK1IeEgLkP8Gd5W7ECmluDTDVYdZg1O8KtR0A48AcIrS/6LfpOzdD9Fwy466a7HJuA+kdCVwUS+HVclXjAlsAfopIE8oG06mAiFyzBATsD0ZaxWbM8PVXZ/UPEA9tK4lhtKl/V3u2QyF2EuCVLwcz6MEwcWaeyO2pbGWoQ3S6GNInhJLJ+DbiVlNdXfICEHac/x5a4Vk3ceqd4EomtMA9d9EbIg2+C7uOQL7s77/z889uXDn4WkmgzA9ee9qMWmswU=
-   file:
-     - dist/ifthenpay.js
-     - dist/ifthenpay.min.js
+  file:
+    - dist/ifthenpay.js
+    - dist/ifthenpay.min.js
   on:
     tags: true
