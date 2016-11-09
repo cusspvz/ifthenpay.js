@@ -7,9 +7,8 @@ script:
 - npm test
 - npm run build
 - npm run browserify
-
 deploy:
-  provider: releases
+- provider: releases
   api_key:
     secure: OxEA9+n3nuN22UDvn9RXU/sIrcOX4+iXUeL2RJJ2HebmpZ7IgSGemafPv/9IkeZzgBgpWsH5w0YwXC02lHiTKgElkQSM+766yNp/CqQ1a7WIXeOc97CRutIiki5F7Hvt1VAQWXCaqa41jAQwoJjPsALeiFLNMtbIF6KMlErI6n8whoBkeQtpX4fN/YvM7ngkmZ/9gyNpPra2QnzLPGc9snAS8G/+xkZlPC6UTexiOkFDtciLhgYLo9IZAs6oFwlxaR4Gb4iAY0+eTwiBYZQWQTdjIcH4CbRpPksz9SIzcV93twfF3tc/UoB99RwpSxNVKeDT6fRtEGxAeonHHhorazO8lgWgzqeOA3TAvR4WyHHVsoWgcV4zQU7JVhA4uHL935TGcx1tVOjVwuK7+3WGE3DUloFqtG2yESqyv/fiFBK1IeEgLkP8Gd5W7ECmluDTDVYdZg1O8KtR0A48AcIrS/6LfpOzdD9Fwy466a7HJuA+kdCVwUS+HVclXjAlsAfopIE8oG06mAiFyzBATsD0ZaxWbM8PVXZ/UPEA9tK4lhtKl/V3u2QyF2EuCVLwcz6MEwcWaeyO2pbGWoQ3S6GNInhJLJ+DbiVlNdXfICEHac/x5a4Vk3ceqd4EomtMA9d9EbIg2+C7uOQL7s77/z889uXDn4WkmgzA9ee9qMWmswU=
   file:
@@ -17,3 +16,11 @@ deploy:
     - dist/ifthenpay.min.js
   on:
     tags: true
+    repo: cusspvz/ifthenpay.js
+- provider: npm
+  email: josemoreiravarzim@gmail.com
+  api_key:
+    secure: YA41BHQU1vyKcMiWPucDJNIrgwJvjEdLkxUI0p20Xmw7qrxvaaKh6c6axQ/2ooiQDBd694QmBJMh96M/y+S+DyiLN0ECUYBndDsb+xRlaQDdBNK5M6H6R1NB2rb+vW2AGCa0RZiXB0uyvPk5V8jmgJF7kcGgMZtK6btFWgMrj67DAOyqDyjQcjPn1MJ+lUI8genR9iy4a++6RkqYb/C3kbqjeBg7QosynUeaFbGfc9wE8vRJeLXfBIVvWIz1DhwofqggdEE7lIbKBeDv3UB3X+d1xYGbyeKtj/BvkuiQNKxFKSFDcZ+zgpCTTTS5ZA+CHl4S4BeYEUdwUiJ62sNFNAaOQzsmCdDgkN4BT3XVwGKYAnwtLd4cyUMkBduqrPmph0uK+LI1s0WxXEiCwiwjurxweSXNM2bhpjJx3JK/Wrp5TsZ8HJnJYn340oyTMKlyKtPvzbP/tdb+M5Ybzlo0NVuz0W3CIQDGyDh821qXOu3P8M1BcVB+4CMxij3Vj1y/D4jDZEJqthmfEU0MMqR4Hcu5pA31m8aJe2/Tjgvo59JKR7KbvLNXShM72HTHEaUSGY6oh7TIgfedkykLqbh9bjfREzih8gAB7kjr+8pTaXhydXBz/WPPNo2j+VtbGIf6A1yMu1QIlvgZuI0+JyEkAfY3pRJ0QRIEWXvZERulUjo=
+  on:
+    tags: true
+    repo: cusspvz/ifthenpay.js

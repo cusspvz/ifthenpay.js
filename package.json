@@ -1,9 +1,10 @@
 {
   "name": "ifthenpay",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "ifthenpay unofficial javascript module",
   "main": "lib/if-then-pay.js",
   "scripts": {
+    "postversion": "git push origin --tags",
     "build": "rm -fR lib/; mkdir lib/; babel -d lib/ src/",
     "browserify": "rm -fR dist/; mkdir dist/; browserify lib/ifthenpay.browser.js -o dist/ifthenpay.js; uglifyjs dist/ifthenpay.js > dist/ifthenpay.min.js",
     "test": "nyc mocha"
