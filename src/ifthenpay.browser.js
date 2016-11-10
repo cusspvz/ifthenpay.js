@@ -11,7 +11,7 @@ const DEFAULT_OPTIONS = {
   generateReferenceOnly: false,
 }
 
-export class IfThenPay {
+class IfThenPay {
 
   constructor ( options ) {
     options = this.options = {
@@ -64,4 +64,4 @@ export class IfThenPay {
 
 }
 
-export default IfThenPay
+module.exports = IfThenPay

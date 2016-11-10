@@ -45,7 +45,7 @@ I'm the owner of this Software.
 * Server-side webhook can work with node's http interface or server frameworks
 such as express or restify.
 * Has a test framework harassing hardly for bugs.
-* About 5KB compressed!!!
+* Standalone compressed released is about 5KB!!!
 
 ## Installation
 
@@ -62,6 +62,22 @@ var IfThenPay = require( 'ifthenpay/browser' )
 ```
 
 ## Usage
+
+
+### Using a standalone release build
+
+**HINT:** Check out newest releases [here](https://github.com/cusspvz/ifthenpay.js/releases)!
+
+```html
+<script type="text/javascript" src="/path/to/ifthenpay.min.js"></script>
+<script type="text/javascript">
+
+  window.onload = function () {
+    var ifthenpay = IfThenPay({ /* ... */ })
+  }
+
+</script>
+```
 
 ### JS ES-stage-0 a.k.a. ES-awesome
 
