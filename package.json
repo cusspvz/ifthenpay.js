@@ -5,7 +5,7 @@
   "main": "lib/if-then-pay.js",
   "scripts": {
     "postversion": "git push origin master && git push origin --tags",
-    "build": "rm -fR lib/; mkdir lib/; babel -d lib/ src/",
+    "build": "rm -fR lib/; mkdir lib/; babel -d lib/ src/; ln -s lib/ifthenpay.browser.js browser.js;",
     "browserify": "rm -fR dist/; mkdir dist/; browserify lib/ifthenpay.browser.js -o dist/ifthenpay.js --bare --standalone IfThenPay; uglifyjs dist/ifthenpay.js > dist/ifthenpay.min.js",
     "test": "nyc mocha"
   },
