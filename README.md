@@ -286,7 +286,9 @@ Will be used to set up a route handler
 Pre shared key provided to IfThen.
 
 #### `options.webhook.callback`
-`Function ( Object: { entity, subentity, id, reference, value } )`
+`Function ( Object: { entity, subentity, id, reference, value, terminal, date } )`
+
+NOTE: all parameters are mandatory, except for terminal and date.
 
 Method for handling validation on your side, such database payments comparison.
 
