@@ -34,7 +34,7 @@ export function generateMiddleware ( ifthenpay ) {
         throw new Error( "subentity didn't match" )
       }
 
-      const value = query.value
+      const value = query.valor
 
       // seems we can pass this up to the callback
       // first, we'll gonna fetch the ID from the reference and pass all the
