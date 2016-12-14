@@ -41,7 +41,11 @@ export function generateMiddleware ( ifthenpay ) {
       // data needed for the callback
       const id = reference.substr( subentity.length, 7 /*( 9 - 2 )*/ - subentity.length )
 
-      await callback({ entity, subentity, id, reference, value })
+      // Grab optional parameters and pass them down to the callback
+      const terminal = query.terminal || null
+      const date = query.datahorapag || null
+      
+      await callback({ entity, subentity, id, reference, value, terminal, date })
 
     } catch ( err ) {
       res.statusCode = 500
