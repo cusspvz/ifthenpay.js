@@ -4,6 +4,7 @@
   "description": "ifthenpay example log webhook payments",
   "main": "index.js",
   "scripts": {
+    "build": "echo do nothing",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
