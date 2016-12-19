@@ -37,7 +37,7 @@ export class IfThenPay {
       throw new TypeError( "options.subentity should be a under 3 chars string" )
     }
 
-    if ( typeof options.webhook == 'object' ) {
+    if ( typeof options.webhook == 'object' && options.webhook.autosetup ) {
       if ( typeof options.webhook.url != 'string' ) {
         options.webhook.url = false
       }

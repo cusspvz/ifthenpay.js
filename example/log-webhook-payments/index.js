@@ -11,6 +11,7 @@ var ifthenpay = new IfThenPay({
   entity: ENTITY,
   subentity: SUBENTITY,
   webhook: {
+    autosetup: true,
     server: SERVER,
     preSharedKey: PRE_SHARED_KEY,
     callback: function ( context ) {

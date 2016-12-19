@@ -110,6 +110,7 @@ const ifthenpay = new IfThenPay({
   entity: '99999'
   subentity: '999',
   webhook: {
+    autosetup: true,
     server, preSharedKey,
     callback: async function ({ id, value }) {
       // Callback logic
@@ -130,6 +131,7 @@ const ifthenpay = new IfThenPay({
   entity: '99999'
   subentity: '999',
   webhook: {
+    autosetup: true,
     server, preSharedKey,
     callback: async function ({ id, value }) {
       // Callback logic
@@ -148,6 +150,7 @@ const ifthenpay = new IfThenPay({
   entity: '99999'
   subentity: '999',
   webhook: {
+    autosetup: true,
     server, preSharedKey,
     callback: async function ({ id, value }) {
 
@@ -208,6 +211,7 @@ var ifthenpay = new IfThenPay({
   entity: '99999'
   subentity: '999',
   webhook: {
+    autosetup: true,
     server: server, preSharedKey: preSharedKey,
     callback: function (context) {
       // Callback logic
@@ -224,6 +228,7 @@ var ifthenpay = new IfThenPay({
   entity: '99999'
   subentity: '999',
   webhook: {
+    autosetup: true,
     server: server, preSharedKey: preSharedKey,
     callback: function (context) {
       var id = context.id
@@ -270,6 +275,11 @@ Option provided by IfThen.
 #### `options.webhook`
 `Object | false`
 Object with options for webhook handling.
+
+#### `options.webhook.autosetup`
+`Boolean | false`
+Defines if webhook should auto mount the middleware handler on the server.
+Needed for those who are using other routers, such as Restify.
 
 #### `options.webhook.url`
 `String | false`
