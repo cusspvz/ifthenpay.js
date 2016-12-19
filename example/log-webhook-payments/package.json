@@ -4,6 +4,7 @@
   "description": "ifthenpay example log webhook payments",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,7 +26,8 @@
     "url": "https://github.com/cusspvz/ifthenpay.js/issues"
   },
   "homepage": "https://github.com/cusspvz/ifthenpay.js#readme",
-  "devDependencies": {
-    "supertest": "^2.0.1"
+  "dependencies": {
+    "babel-polyfill": "^6.20.0",
+    "ifthenpay": "*"
   }
 }
