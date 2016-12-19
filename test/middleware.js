@@ -34,6 +34,12 @@ describe( "IfThenPay", () => {
         .expect( 500, done )
       })
 
+      it( 'should reply 200 response with valid data', ( done ) => {
+        req
+        .get(`/?chave=${PRE_SHARED_KEY}&entidade=99999&referencia=999012373&valor=123.00`)
+        .expect( 200, done )
+      })
+
     }
 
     describe( "node http server", () => {

@@ -2,7 +2,7 @@ import QueryString from 'querystring'
 
 export function generateMiddleware ( ifthenpay ) {
   return async ( req, res ) => {
-    const { entity, webhook: { preSharedKey, callback } } = ifthenpay.options
+    const { entity, subentity, webhook: { preSharedKey, callback } } = ifthenpay.options
 
     try {
       const qsi = req.url.indexOf( '?' )
@@ -44,13 +44,18 @@ export function generateMiddleware ( ifthenpay ) {
       // Grab optional parameters and pass them down to the callback
       const terminal = query.terminal || null
       const date = query.datahorapag || null
-      
+
       await callback({ entity, subentity, id, reference, value, terminal, date })
 
     } catch ( err ) {
       res.statusCode = 500
       res.statusMessage = 'Internal Server Error'
       res.end()
+
+      if ( process.env.NODE_ENV === 'development' ) {
+        console.warn( err )
+      }
+      return
     }
 
     res.statusCode = 200
