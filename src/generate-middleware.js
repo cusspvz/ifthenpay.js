@@ -26,7 +26,7 @@ export function generateMiddleware ( ifthenpay ) {
 
       const reference = query.referencia
 
-      if ( ! reference.match(/[0-9](9)/) ) {
+      if ( ! reference.match(/[0-9]{9}/) ) {
         throw new Error( "reference didn't match" )
       }
 
