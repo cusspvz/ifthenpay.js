@@ -4,8 +4,10 @@
  * @COPYRIGHTER: José Moreira
  */
 
+import padStart from 'pad-start'
+
 export function cutPad ( number, length ) {
-  return ( "" + number ).padStart( length, '0' ).substr( length * -1, length )
+  return padStart( "" + number, length, '0' ).substr( length * -1, length )
 }
 
 export default cutPad

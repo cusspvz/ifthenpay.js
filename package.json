@@ -27,7 +27,9 @@
     "url": "https://github.com/cusspvz/ifthenpay.js/issues"
   },
   "homepage": "https://github.com/cusspvz/ifthenpay.js#readme",
-  "dependencies": {},
+  "dependencies": {
+    "pad-start": "^1.0.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
