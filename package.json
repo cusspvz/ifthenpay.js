@@ -1,6 +1,6 @@
 {
   "name": "ifthenpay",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "ifthenpay unofficial javascript module",
   "main": "lib/if-then-pay.js",
   "scripts": {
