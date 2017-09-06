@@ -183,7 +183,7 @@ const ifthenpay = new IfThenPay({
 
 #### Generating multibanco's payment codes
 ```js
-var IfThenPay = require( 'ifthenpay' )
+var IfThenPay = require( 'ifthenpay' ).IfThenPay
 
 var ifthenpay = new IfThenPay({
   entity: '99999'
@@ -201,7 +201,7 @@ console.log( ifthenpay.generate( 55.34 ) )
 
 #### Connecting with an express server
 ```js
-var IfThenPay = require( 'ifthenpay' )
+var IfThenPay = require( 'ifthenpay' ).IfThenPay
 var Express = require( 'express' )
 
 var server = Express().listen(80)
