@@ -32,7 +32,7 @@ IfThenPay is one of them. I've choosed to work with them because they've created
 an algorithm to allow their customers to create their custom  **Multibanco**
 references on the go.
 
-Note: At them time, I have not any kind of engagement with **IfThenPay**, and
+Note: At the time, I have not any kind of engagement with **IfThenPay**, and
 I'm the owner of this Software.
 
 
